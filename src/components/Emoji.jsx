@@ -15,12 +15,14 @@ function shorten(string) {
 	return string.substring(0, string.length > 16 ? 16 : string.length) + '...';
 }
 
-export default function Emoji({ data, focusEmoji }) {
+export default function Emoji({ data, onClick }) {
 	if (data == null) return <p>Searching</p>;
 	return (
 		<div
-			className="w-24 h-24 md:w-32 md:h-36 my-3 mx-auto"
-			onClick={() => focusEmoji(data)}
+			className="w-24 h-24 md:w-32 md:h-36 my-3 mx-auto hover:cursor-pointer"
+			onClick={() => {
+				onClick(data);
+			}}
 		>
 			<Box>
 				<div className="relative h-full p-2">
